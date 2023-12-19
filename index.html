@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>2020 GBS Summer Symposium & Gala</title>
+
+  <!-- Bootstrap -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-theme.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- siimple style -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jsbarcode/3.3.20/JsBarcode.all.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+ 
+  <!-- =======================================================
+    Theme Name: Siimple
+    Theme URL: https://bootstrapmade.com/free-bootstrap-landing-page/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+
+  <style type="text/css">
+
+  * {
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  
+  #qrcode img {
+    margin: 0 auto;
+    padding: 5px;
+    background-color: white;
+  }
+
+  .collapse-header {
+    width: 100%;
+    padding: .5em;
+    background: #363853;
+    color: #fff;
+    font-size: 2em;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  }
+
+  .collapse-header h4 {
+    font-weight: 800;
+  }
+
+  .collapse-content {
+    background: #eee;
+    background: #363853;
+    background: #f1ffdd;
+    background: rgb(217, 249, 229);
+    color: #000;
+  }
+
+  .collapse-content a:link,
+  .collapse-content a:visited,
+  .collapse-content a:hover,
+  .collapse-content a:active {
+    color: #363853;
+  }
+
+  .collapse-header a:link,
+  .collapse-header a:visited,
+  .collapse-header a:hover,
+  .collapse-header a:active {
+    color: #fff;
+  }
+
+  #accordion row {
+    background: #fff;
+  }
+
+  a.navbar-brand:link,
+  a.navbar-brand:visited,
+  a.navbar-brand:hover,
+  a.navbar-brand:active {
+    color: #edefc7 !important;
+  }
+
+  #qr_block{
+  height:100%;
+  overflow:hidden;
+}
+#qr_block{
+  background:#E1D38A;
+  background-size:cover;
+  font-family:sans-serif;
+  text-align:center;
+  padding-top:20%;
+  margin-top: 50px;
+}
+
+.content {
+  width: 400px;
+  background: #fff;
+  padding: 30px;
+  text-align: center;
+  z-index: 995;
+  box-shadow:0 3px 36px 0 rgba(0, 0, 0, 0.6);
+  display:inline-block;
+  opacity:0.7;
+  color:#666;
+  text-decoration:none;
+  transition:all 0.2s
+}
+
+.content:hover{
+  box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.3);
+  padding:40px;
+  margin-top:-10px;
+  color:#444
+}
+
+  #ticket_type {
+    font-size: 2.5em; 
+  }
+
+  .visible-xxs {
+    display: none;
+  }
+
+  @media screen and (min-width: 50px) and (max-width: 600px) {
+    #ticket_type {
+      font-size: 2em;
+    }
+    .visible-xs {
+      display: none !important;
+    }
+    .visible-xxs {
+      display: inline;
+    }
+  }
+
+
+  .navbar-inverse {
+    background: #429eb1; /* #363853; */
+  }
+
+div.rotated {
+  width: 400px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 0 auto;
+  z-index: 500;
+  position: absolute;
+  left: calc(100%*0.5 - 200px);
+  top: calc(100%*0.5 - 200px);
+  border: 2px solid #fff;
+  padding: 4px;
+}
+
+.rotated {
+  transform: rotate(45deg); /* Equal to rotateZ(45deg) */
+  background-color: white;
+}
+
+#qr_block {
+  background: #edefc7 no-repeat 50% 50% url(./assets/img/edm_01.jpg); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#ticket_type, #qrcode, #qrcode_txt {
+  z-index: 1000;
+}
+
+.collapse-header {
+  z-index: 2000;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="javascript:void();" style="font-size: 1em; text-align: center;">
+          <span style="margin: 0 auto;">2020 GBS 夏季員工大會 | 仲夏夜之宴 </span><span class="ticket_name">入場券</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="header">
+    <div class="container-fluid align-middle" style="text-align: center;">
+      <div class="row">
+
+
+        <div class="col-12" style="overflow: hidden;">
+          <div class="row" id="qr_block" style=" padding: 1.5em 1em 1em 1em;">
+            <div id="qr_box">
+              <div class="col-12" style="padding-top: 2em;">&nbsp;</div>
+              <div class="col-12" id="qrcode"></div>
+              <div class="col-12" id="ticket_type" style="margin: -.2em auto 0 auto; width: 220px; border-bottom: 2px solid #000; font-weight: 800; font-size: 2em; padding: 0 0 .3em 0; color: #000; line-height: .6em;"></div>
+              <div class="col-12" id="qrcode_txt" style="color: #000; padding-top: .5em;"></div>
+              <div class="rotated" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12" id="content">
+          
+          <div class="container-fluid" id="accordion">
+
+            <div class="row">
+              <div class="col-12 collapse-header">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                  <h4 class="panel-title">
+                    活動時間
+                  </h4>
+                </a>
+              </div>
+              <div id="collapse2" class="col-12 collapse collapse-content">
+                <img class="img-fluid" src="./assets/img/edm_02.jpg" style="width: 100%;" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 collapse-header">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                  <h4 class="panel-title">
+                    交通方式
+                  </h4>
+                </a>
+              </div>
+              <div id="collapse3" class="col-12 collapse collapse-content">
+                <img class="img-fluid" src="./assets/img/edm_03.jpg" style="width: 100%;" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 collapse-header">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                  <h4 class="panel-title">
+                    座位表
+                  </h4>
+                </a>
+              </div>
+              <div id="collapse4" class="col-12 collapse collapse-content">
+                <img class="img-fluid" src="./assets/img/edm_04.jpg" style="width: 100%;" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 collapse-header">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                  <h4 class="panel-title">
+                    夏季員工大會流程表
+                  </h4>
+                </a>
+              </div>
+              <div id="collapse5" class="col-12 collapse collapse-content">
+                <img class="img-fluid" src="./assets/img/edm_05.jpg" style="width: 100%;" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 collapse-header">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                  <h4 class="panel-title">
+                    仲夏夜之宴流程表
+                  </h4>
+                </a>
+              </div>
+              <div id="collapse6" class="col-12 collapse collapse-content">
+                <img class="img-fluid" src="./assets/img/edm_06.jpg" style="width: 100%;" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 collapse-header">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                  <h4 class="panel-title">
+                    入場報到流程
+                  </h4>
+                </a>
+              </div>
+              <div id="collapse7" class="col-12 collapse collapse-content">
+                <img class="img-fluid" src="./assets/img/edm_07.jpg" style="width: 100%;" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 collapse-header">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+                  <h4 class="panel-title">
+                    Q&A
+                  </h4>
+                </a>
+              </div>
+              <div id="collapse8" class="col-12 collapse collapse-content">
+                <img class="img-fluid" src="./assets/img/edm_08.jpg" style="width: 100%;" />
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <p style="font-weight: 400; color: #fff; padding-top: 1em; font-size: .8em;">
+            <strong>2020 GBS Summer Symposium &amp; Gala</strong> <br />
+            如您對活動有任何疑問<br />請與籌備小組 <strong>Rebecca Chu/Taiwan/IBM</strong> 聯絡
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/imageMapResizer.min.js"></script>
+  <script type="text/javascript" src="qrcode.js"></script>
+
+  <script type="text/javascript">
+
+    // 取得參數 QueryString
+    var getParameterByName = function(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+  	$(function(){
+
+      // 小螢幕則 QR code 區塊使用正方形
+      var cw = $('#qr_box').width();
+      if(cw < 992) {
+        $('#qr_box').css({'height':cw+'px'});
+      }
+
+      var genCodeType = -1;
+      var lastCodeIdx = -1;
+      var SPAN_TIME=2000;
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+
+      // file:///Users/wivx/tw-ewc-checkin-static/v3/index.html?ticket=02726713546a63d5f7b4a79b0fde113c4b21ed0
+
+      var renderBarCode = function(val) {
+
+          document.getElementById("qrcode").innerHTML = '';
+
+          // check digits
+          if(val && val.length == 12) {
+
+            console.log("Valid Ticket");
+
+            // valid
+            var userType = val.substring(6, 7);
+            var sn = val.substring(0, 6);
+            var ticketWord = "";
+            var ticket_color = "#fff";
+            var ticket_description = "";
+            userType=1;
+
+            if(userType==1) {
+              ticketWord = "IBMer Ticket";
+              ticketWord = "<span></span><br /><small style=\"font-size: .6em;\">員工序號："+sn+"</small>";
+              ticket_color = "#a6ca1e";
+              ticket_color = "#903863";
+              ticket_description = "<p style='font-weight: 700; font-size: 1em; color: #444; line-height: 1.6em; display: none;'>2020 夏季員工大會報到入場券 <br /> SUMMER SYMPOSIUM <br /> 2020 仲夏夜之宴報到入場券 <br /> SUMMER GALA</p><p style='text-align: center; font-weight: 800;'>請同仁務必攜帶 <br /> <span style=\"color: #e33924;\">IBM BADGE</span> 及 <span style=\"color: #e33924;\">口罩</span> 報到入場</p>";
+              ticket_text_color = "#fff";
+              $("#qr_block").addClass("regular");
+            } else if (userType==2) {
+              ticketWord = "Contractor or IA-in Ticket";
+              ticketWord = "<span>員工入場券</span><br /><small style=\"font-size: .6em;\">員工序號："+sn+"</small>";
+              ticket_color = "#ffe";
+              ticket_description = "需 <strong>員工本人</strong> 出示 <strong>IBM Badge</strong> 及 <strong>QR Code</strong> 報到";
+            } else if (userType==3) {
+              ticketWord = "Friendship Ticket";
+              ticketWord = "<span>員工親友入場券</span><br /><small style=\"font-size: .6em;\">員工序號："+sn+"</small>";
+              ticket_color = "#efe";
+              ticket_description = "<br />IBM 之友您好，很開心您參與今年的 IBM YEP，敬請配合現場工作人員引導，至報到櫃檯出示此 <strong>QR Code</strong> 報到。<br /><br />如有任何問題，請聯繫邀請您的 IBM 員工或活動現場工作人員";
+              $("#faq").hide();
+            } else {
+              ticketWord = "無效票證<br />Invalid Ticket";
+              ticket_color = "#fff";
+              ticket_description = "<br />您好，請確認網址複製完整。如仍有問題請聯繫籌備小組 Rebecca Chu/Taiwan/IBM";
+              $("#faq").hide();
+            }
+
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+              width : 160,
+              height : 160
+            });
+            // $("#qrcode_txt").html(val);
+            qrcode.makeCode(val);
+            $("#ticket_type").html(ticketWord);
+            //$("#qr_block").css("background-color",ticket_color);
+            $("#qrcode_txt").html(ticket_description);
+
+          } else if(val == null) {
+            
+            $("#qr_block").hide();
+            $(".ticket_name").hide();
+            $("#content").css("margin-top", "50px");
+            $(".collapse").removeClass("collapse");
+            $(".collapse-content").removeClass("collapse-content");
+
+          } else {
+            // invalid
+            ticketWord = "無效票證<br />Invalid Ticket";
+            ticket_color = "#fff";
+            ticket_description = "<br />您好，請確認網址複製完整。如仍有問題請聯繫籌備小組 Rebecca Chu/Taiwan/IBM";
+            $("#faq").hide();
+            $("#ticket_type").html(ticketWord);
+            $("#qr_block").css("background-color",ticket_color);
+            $("#qrcode_txt").html(ticket_description);
+          }
+
+          
+      };
+
+      // retrive ticket info
+      var ticketNo = getParameterByName("q");
+      renderBarCode(ticketNo);
+
+      $("#qna_title").click(function(){
+        $('map').imageMapResize();
+      });
+
+
+      //by @nodws
+      /*
+      Using trianglify.js and d3.js library
+      Also not possible without Tim Berners Lee creator of the www, Brendan Eich creator of javascript, Michael S. Dell founder of Dell Computer who manufactured my PC, my Mom and Dad who manufactured me and The BigBang creator of the universe.
+      Hope these credits are enough  to satisfy my impostor syndrome 
+      */
+      //Click to change bg
+      // var rn = Math.floor((Math.random() * 150) + 70);
+      // var rs = Math.floor((Math.random() * 11) + 4);
+      //   var t = new Trianglify({
+      //  x_gradient: Trianglify.colorbrewer.Spectral[rs],
+      //     noiseIntensity: 0,
+      //     cellsize: rn
+      // });
+      // var pattern = t.generate(window.innerWidth, window.innerWidth+200);
+      // $("#qr_block").css("background-image", pattern.dataUrl);
+
+  	});
+
+  </script>
+
+</body>
+
+</html>
